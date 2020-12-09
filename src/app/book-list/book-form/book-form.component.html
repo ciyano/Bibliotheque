@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>enrigstrer un nouveau livre</h2>
+    <form [formGroup] =" bookForm"   (ngSubmit) = "onSaveBook()">
+        <div class="form-group">
+          <label for="title">titre</label>
+          <input type="text"  id="title" class="form-control"  formControlName="title">
+        </div>
+
+        <div class="form-group">
+          <label for="author">auteur</label>
+          <input type="text"  id="author" class="form-control"  formControlName="author">
+        </div>
+
+        <div class="form-group">
+          <h4>ajouter une photo</h4>
+          <input type="file" class="from-control"  (change)="detecteFile($event)" accept="image/*">
+          <p class="text-success" *ngIf="fileUploaded">fichier charger</p>
+        </div>
+<button class="btn btn-success"  type="submit" [disabled]=" bookForm.invalid || fileIsUploading" >creer un nouveau livre</button>
+    </form>
+
+
+           </div>
+</div>
